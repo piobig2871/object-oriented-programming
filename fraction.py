@@ -47,6 +47,7 @@ class Ulamek(object):
         return self.licznik / self.mianownik
 
 
-b = Ulamek(9, 5)
-c = Ulamek(1, 31)
-print(b + c)
+if __name__ == __main__:
+    b = Ulamek(9, 5)
+    c = Ulamek(1, 31)
+    print(b + c)
