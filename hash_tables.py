@@ -5,7 +5,7 @@ class HashTable(object):
     def __init__(self, size):
         self.size = size
         self.T = []
-        for i in xrange(self.size):
+        for i in range(self.size):
             self.T.append(None)
     
     def hprim(self, key):
@@ -22,13 +22,13 @@ class HashTable(object):
     def _gen_sequence(self, key):
         """funkcja generujaca sekwencje kluczy"""
         seq = []
-        for idx in xrange(self.size):
+        for idx in range(self.size):
             seq.append((self.hprim(key) + idx) % self.size)
         return seq
     
     def _gen_sequence_str(self, key):
         seq = []
-        for idx in xrange(self.size):
+        for idx in range(self.size):
             seq.append((self.hstring(key) + idx) % self.size)
         return seq
 
@@ -95,14 +95,14 @@ class HashTable(object):
         if ret:
             return self.T[idx][1]
         else:
-            raise KeyError, 'Nie ma takiego klucza'
+            raise KeyError('Nie ma takiego klucza')
 
     def __str__(self):
         """reprezentacja STR obiektu HashTable"""
         ret = "{"
         for val in self.T:
-            print val
-            if val is not None and val is not 'Deleted':
+            print(val)
+            if val is not None and val != 'Deleted':
                 ret += str(val[0]) + ': ' + str(val[1]) + ', '
         return ret[:-2] + '}'
 
@@ -110,23 +110,13 @@ def test():
     ht = HashTable(11)
     ht.insert(123,1)
     ht.insert("test","value")
-    print ht
+    print(ht)
     ht.insert("test","value2")
-    print ht
+    print(ht)
     ht.delete("test")
-    print ht
-    print ht.T
+    print(ht)
+    print(ht.T)
     
 
-test()
+print(test())
 
-ht = HashTable(11)
-ht.insert(123,1)
-ht.insert("test","value")
-print ht
-ht.insert("test","value2")
-print ht
-ht.delete("test")
-print ht
-print ht.T
-ht

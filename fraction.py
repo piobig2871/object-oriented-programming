@@ -1,4 +1,4 @@
-#coding: utf-8
+# coding: utf-8
 
 class Ulamek(object):
     def __init__(self, licznik, mianownik):
@@ -15,9 +15,9 @@ class Ulamek(object):
         return self.licznik, self.mianownik
 
     def __repr__(self):
-        return '{cls_name}({licznik}, {mianownik})'.format(cls_name= self.__class__.__name__,
-                                                          licznik = self.licznik,
-                                                          mianownik = self.mianownik)
+        return '{cls_name}({licznik}, {mianownik})'.format(cls_name=self.__class__.__name__,
+                                                           licznik=self.licznik,
+                                                           mianownik=self.mianownik)
 
     def __add__(self, other):
 
@@ -47,7 +47,6 @@ class Ulamek(object):
         return self.licznik / self.mianownik
 
 
-if __name__ == __main__:
-    b = Ulamek(9, 5)
-    c = Ulamek(1, 31)
-    print(b + c)
+b = Ulamek(9, 5)
+c = Ulamek(1, 31)
+print(b + c)

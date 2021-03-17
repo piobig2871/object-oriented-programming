@@ -1,16 +1,8 @@
 # coding: utf-8
 
-import numpy as np
 from collections import Counter
 from math import sqrt
-from math import ceil
 import matplotlib.pyplot as plt
-import random
-from sklearn import preprocessing
-from sklearn import metrics
-import numpy as np
-import statistics
-
 
 
 class Statystyka:
@@ -103,9 +95,8 @@ class Statystyka:
 
     def histogram(self):
         '''funkcja zwracajaca ilosc wystapien wartosci w tablicy'''
-        # sl = Counter(self.tablica)
-        # return [list(sl.keys()), list(sl.values())]
-        return type(Counter(self.tablica))
+        sl = Counter(self.tablica)
+        return [list(sl.keys()), list(sl.values())]
 
     def wykres_słupkowy(self):
         x, y = self.histogram()
@@ -193,9 +184,8 @@ class Statystyka:
         '''
         return list(map(lambda x: x * skalar, self.tablica))
 
-
     def wykres_liniowy(self):
-        x, y  = self.tablica, [self.srednia_geometryczna() for _ in range(len(self.tablica))]
+        x, y = self.tablica, [self.srednia_geometryczna() for _ in range(len(self.tablica))]
         plt.plot(x, y, color='r')
         plt.xlabel('dziedzina')
         plt.ylabel('zbiór wartości')
@@ -203,25 +193,16 @@ class Statystyka:
         plt.show()
 
 
-
-
-
-
-
-
-
-
 a = Statystyka([3.5, 4.5, 4, 3.5, 4, 4.5, 5, 4, 4, 5])
-# print(a.maksimum())
-# print(a.minimum())
+print(a.maksimum())
+print(a.minimum())
 print(a.srednia_arytmetyczna())
-# print(a.mediana())
-# print(a.wariancja())
-# print(a.odchylenie_standardowe())
+print(a.mediana())
+print(a.wariancja())
+print(a.odchylenie_standardowe())
 print(a.normalizacja())
-# print(a.mediana())
-# print(a.skalownaie_liniowe_skalar(3))
-# print(a.histogram())
-# print(a.wykres_słupkowy())
-# print(a.wykres_liniowy())
-#
+print(a.mediana())
+print(a.skalownaie_liniowe_skalar(3))
+print(a.histogram())
+print(a.wykres_słupkowy())
+print(a.wykres_liniowy())

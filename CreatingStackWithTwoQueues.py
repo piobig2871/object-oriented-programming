@@ -1,5 +1,4 @@
 class Queue:
-
     '''Class Queue we will be using instances of this class to create stack.
         Queue is data stucture FIFO type.'''
 
@@ -25,7 +24,7 @@ class Queue:
 
     def printqueue(self):
 
-        print self.tab
+        print(self.tab)
 
     def first(self):
 
@@ -37,14 +36,14 @@ class CreatingStackWithTwoQueues:
 
     def __init__(self):
 
-        self.kolejka1 = Queue() #First instance of Queue class
-        self.kolejka2 = Queue() #Second instance of Queue class
+        self.kolejka1 = Queue()  # First instance of Queue class
+        self.kolejka2 = Queue()  # Second instance of Queue class
 
     def push(self, val):
 
         '''this method allowes us to push elements in the right order on the stack'''
 
-        self.kolejka2.enqueue(item)
+        self.kolejka2.enqueue(val)
         while not self.kolejka1.isEmpty():
             self.kolejka2.enqueue(self.kolejka1.dequeue())
         while not self.kolejka2.isEmpty():

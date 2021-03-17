@@ -29,7 +29,7 @@ class binarySearchTree:
         if self.key is not None:
             if self.left_node is not None:
                 self.left_node.inorder()
-            print self.key
+            print(self.key)
             if self.right_node is not None:
                 self.right_node.inorder()
 
@@ -107,10 +107,10 @@ class binarySearchTree:
             self.left_node.postorder()
         if not self._right_is_empty():
             self.right_node.postorder()
-        print self.key
+        print(self.key)
 
     def preorder(self):
-        print self.key
+        print(self.key)
         if not self._left_is_empty():
             self.left_node.preorder()
         if not self._right_is_empty():
@@ -120,18 +120,17 @@ class binarySearchTree:
         for i in args:
             self.bst_insert_nr(i)
 
-
     def leafsnr(self):
         if self.isEmpty():
             return 0
         if self.isleaf():
             return 1
-        ile = 0
+        count = 0
         if not self._right_is_none():
-            ile += self.right_node.count_leafs()
+            count += self.right_node.count_leafs()
         if not self._left_is_none():
-            ile += self.right_node.count_leafs()
-        return ile
+            count += self.right_node.count_leafs()
+        return count
 
     def wierzcholki(self):
         licznik = 1
@@ -142,7 +141,6 @@ class binarySearchTree:
         return licznik
 
     def depth(self, klucz):
-        """ DZIALA """
         if self.isKey(klucz):
             wl = 0
             wr = 0
@@ -170,18 +168,17 @@ class binarySearchTree:
         return False
 
     def isKey(self, klucz):
-        """ DZIALA """
         if self.key is None:
             return False
         if self.key == klucz:
             return True
         elif klucz < self.key:
-            if self.left_node != None:
+            if self.left_node is not None:
                 return self.left_node.isKey(klucz)
             else:
                 return False
         else:
-            if self.right_node != None:
+            if self.right_node is not None:
                 return self.right_node.isKey(klucz)
             else:
                 return False
@@ -189,7 +186,7 @@ class binarySearchTree:
     def liscie(self):
         if self == None: return None
         elif self.left_node is None and self.right_node is None:
-            print self.key
+            print(self.key)
         else:
             if self.left_node != None: self.left_node.liscie()
             if self.right_node != None: self.right_node.liscie()
@@ -198,7 +195,7 @@ class binarySearchTree:
         if self.key is None:
             return
         if self.left_node and self.right_node:
-            print self.key
+            print(self.key)
         if self.left_node:
             self.left_node.level2()
         if self.right_node:
@@ -207,22 +204,9 @@ class binarySearchTree:
     def printLevel(self, lvl):
         if self.key is None: return None
         if lvl == 0:
-            print self.key
+            print(self.key)
         if self.left_node is not None: self.left_node.printLevel(lvl-1)
         if self.right_node is not None: self.right_node.printLevel(lvl-1)
-
-    def level2_ktores(self, s):
-        if self.key is None:
-            return []
-        l = []
-        if self.left_node and self.right_node:
-            l.append(self.key)
-        if self.left_node:
-            self.left_node.level2()
-        if self.right_node:
-            self.right_node.level2()
-
-
 
 
 
@@ -242,11 +226,10 @@ r.bst_insert_nr(63)
 r.bst_insert_nr(40)
 r.bst_insert_nr(52)
 r.bst_insert_nr(58)
-print r.inorder()
-print r.preorder()
-print r.postorder()
-print r.depth(40)
-print r.level2()
-print r.level2_ktores(40)
-print r.printLevel(3)
-print r.binary_search_iter(40)
+print(r.inorder())
+print(r.preorder())
+print(r.postorder())
+print(r.depth(40))
+print(r.level2())
+print(r.printLevel(3))
+print(r.binary_search_iter(40))
