@@ -54,7 +54,7 @@ class TriHeapMAX:
 
     def _build_max_heap(self, T):
         """build heap"""
-        for i in range(self.hSize / 3, -1, -1):
+        for i in range(self.hSize // 3, -1, -1):
             self._fix_down(i)
 
     def extract_max(self):
