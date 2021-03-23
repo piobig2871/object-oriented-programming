@@ -1,8 +1,7 @@
-#Piotr Bigos
-#Algorithms and data structures
+# Piotr Bigos
 
-class binarySearchTree:
-    def __init__(self,dane=None):
+class BinarySearchTree:
+    def __init__(self, dane=None):
         self.key = dane
         self.left_node = None
         self.right_node = None
@@ -11,7 +10,7 @@ class binarySearchTree:
         if self.key is None:
             self.key = klucz
         else:
-            z = binarySearchTree(klucz)
+            z = BinarySearchTree(klucz)
             y = None
             x = self
             while (x is not None):
@@ -72,7 +71,7 @@ class binarySearchTree:
         return self.key
 
     def _search(self, root, key):
-        if root  == None:
+        if root == None:
             return False
         elif root._ret_key() == key:
             return True
@@ -132,16 +131,16 @@ class binarySearchTree:
             count += self.right_node.count_leafs()
         return count
 
-    def wierzcholki(self):
-        licznik = 1
+    def peaks(self):
+        count_peaks = 1
         if self.left_node:
-            licznik += self.left_node.wierzcholki()
+            count_peaks += self.left_node.peaks()
         if self.right_node:
-            licznik += self.right_node.wierzcholki()
-        return licznik
+            count_peaks += self.right_node.peaks()
+        return count_peaks
 
     def depth(self, klucz):
-        if self.isKey(klucz):
+        if self.is_key(klucz):
             wl = 0
             wr = 0
             if self.key == klucz:
@@ -167,29 +166,32 @@ class binarySearchTree:
                 root = root.right_node
         return False
 
-    def isKey(self, klucz):
+    def is_key(self, klucz):
         if self.key is None:
             return False
         if self.key == klucz:
             return True
         elif klucz < self.key:
             if self.left_node is not None:
-                return self.left_node.isKey(klucz)
+                return self.left_node.is_key(klucz)
             else:
                 return False
         else:
             if self.right_node is not None:
-                return self.right_node.isKey(klucz)
+                return self.right_node.is_key(klucz)
             else:
                 return False
 
-    def liscie(self):
-        if self == None: return None
+    def leafs(self):
+        if self is None:
+            return None
         elif self.left_node is None and self.right_node is None:
             print(self.key)
         else:
-            if self.left_node != None: self.left_node.liscie()
-            if self.right_node != None: self.right_node.liscie()
+            if self.left_node is not None:
+                self.left_node.leafs()
+            if self.right_node is not None:
+                self.right_node.leafs()
 
     def level2(self):
         if self.key is None:
@@ -201,18 +203,19 @@ class binarySearchTree:
         if self.right_node:
             self.right_node.level2()
 
-    def printLevel(self, lvl):
-        if self.key is None: return None
+    def print_level(self, lvl):
+        if self.key is None:
+            return None
         if lvl == 0:
             print(self.key)
-        if self.left_node is not None: self.left_node.printLevel(lvl-1)
-        if self.right_node is not None: self.right_node.printLevel(lvl-1)
+        if self.left_node is not None:
+            self.left_node.print_level(lvl - 1)
+        if self.right_node is not None:
+            self.right_node.print_level(lvl - 1)
 
 
-
-
-r = binarySearchTree()
-
+r = BinarySearchTree()
+## test
 r.bst_insert_nr(65)
 r.bst_insert_nr(54)
 r.bst_insert_nr(59)
@@ -226,10 +229,19 @@ r.bst_insert_nr(63)
 r.bst_insert_nr(40)
 r.bst_insert_nr(52)
 r.bst_insert_nr(58)
+print('inorder')
 print(r.inorder())
+print('preorder')
 print(r.preorder())
+print('postorder')
 print(r.postorder())
+print('leafs')
+print(r.leafs())
+print('depth')
 print(r.depth(40))
+print('level2')
 print(r.level2())
-print(r.printLevel(3))
+print('printleve(3))')
+print(r.print_level(3))
+print('BST search iter')
 print(r.binary_search_iter(40))

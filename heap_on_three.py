@@ -5,23 +5,23 @@ class TriHeapMAX:
         self._build_max_heap(self.heap)
 
     def _parent(self, i):
-    ## Wyznacz rodzica
+        """designate parent"""
         return (i - 1) / 3
 
     def _left(self, i):
-    ## Wyznacz lewe dziecko
+        """designate left child"""
         return i * 3 + 1
 
     def _middle(self, i):
-    ## Wyznacz srodkowe dziecko
+        """destignate middle child"""
         return i * 3 + 2
 
     def _right(self, i):
-    ## Wyznacz prawe dziecko
+        """destignate middle child"""
         return i * 3 + 3
 
     def _fix_down(self, i):
-    ## Napraw wlasnosc kopca w dol
+        """fix heap down"""
         l = self._left(i)
         m = self._middle(i)
         r = self._right(i)
@@ -47,18 +47,18 @@ class TriHeapMAX:
             self._fix_down(largest)
 
     def _fix_up(self, i):
-    ## Napraw wlasnosc kopca w gore
+        """fix heap up"""
         while i > 1 and self.heap[self._parent(i)] < self.heap[i]:
             self.heap[i], self.heap[self._parent(i)] = self.heap[self._parent(i)], self.heap[i]
             i = self._parent(i)
 
     def _build_max_heap(self, T):
-    ## Stworz kopiec z listy
+        """build heap"""
         for i in range(self.hSize / 3, -1, -1):
             self._fix_down(i)
 
     def extract_max(self):
-    ## Zwroc maksimum kopca
+        """extract max element from heap"""
         if self.hSize > 0:
             maxi = self.heap[0]
             self.heap[0] = self.heap[self.hSize - 1]
@@ -69,24 +69,26 @@ class TriHeapMAX:
             return None
 
     def increase_key(self, i, key):
+        """increase key to heap"""
         if key < self.heap[i]:
             return None
         self.heap[i] = key
         self._fix_up(i)
 
     def insert(self, key):
+        """insert value to heap"""
         self.hSize += 1
         self.heap.insert(self.hSize - 1, -999999)
         self.increase_key(self.hSize - 1, key)
 
     def sort(self):
+        """heap sort"""
         ret = []
         while self.hSize > 0:
             ret.insert(0, self.extract_max())
         return ret
-            
 
-L = [71,66,24,32,27,23,8,5,22,25,18]
+
+L = [71, 66, 24, 32, 27, 23, 8, 5, 22, 25, 18]
 test = TriHeapMAX(L)
 print(test.sort())
-        
