@@ -88,7 +88,7 @@ class HashTable(object):
         if flag:
             self.T[idx] = 'Deleted'
         else:
-            raise Exception("Nie ma takiego klucza")
+            raise Exception("There is not such a key")
 
     def get_val(self, key):
         """Getting value from hash table"""
@@ -96,7 +96,7 @@ class HashTable(object):
         if ret:
             return self.T[idx][1]
         else:
-            raise KeyError('Nie ma takiego klucza')
+            raise KeyError("There is not such a key")
 
     def __str__(self):
         """reprezentation"""

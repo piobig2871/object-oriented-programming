@@ -1,52 +1,52 @@
 # coding: utf-8
 
-class Ulamek(object):
-    def __init__(self, licznik, mianownik):
-        assert mianownik != 0, 'Mianownik musi byc rozny od 0'
-        max_, min_ = (licznik, mianownik) if licznik > mianownik else (mianownik, licznik)
-        self.licznik = licznik // min_ if max_ % min_ == 0 else licznik
-        self.mianownik = mianownik // min_ if max_ % min_ == 0 else mianownik
+class Fraction(object):
+    def __init__(self, nominator, denominator):
+        assert denominator != 0, 'Denominator must be different than zero!'
+        max_, min_ = (nominator, denominator) if nominator > denominator else (denominator, nominator)
+        self.nominator = nominator // min_ if max_ % min_ == 0 else nominator
+        self.denominator = denominator // min_ if max_ % min_ == 0 else denominator
 
     def _nwd(self, a, b):
         return b if a == 0 else self._nwd(b % a, a)
 
     @property
     def get_val(self):
-        return self.licznik, self.mianownik
+        return self.nominator, self.denominator
 
     def __repr__(self):
-        return '{cls_name}({licznik}, {mianownik})'.format(cls_name=self.__class__.__name__,
-                                                           licznik=self.licznik,
-                                                           mianownik=self.mianownik)
+        return '{cls_name}({nominator}, {denominator})'.format(cls_name=self.__class__.__name__,
+                                                               nominator=self.nominator,
+                                                               denominator=self.denominator)
 
     def __add__(self, other):
 
-        if isinstance(other, Ulamek):
+        if isinstance(other, Fraction):
 
-            nwd = self._nwd(self.mianownik, other.mianownik)
-            sm, sl = self.mianownik, self.licznik
-            om, ol = other.mianownik, other.licznik
+            nwd = self._nwd(self.denominator, other.denominator)
+            sm, sl = self.denominator, self.nominator
+            om, ol = other.denominator, other.nominator
             if nwd == 1:
-                mianownik = sm * om
-                licznik = sl * (mianownik / sm) + \
-                          ol * (mianownik / om)
+                denominator = sm * om
+                nominator = sl * (denominator / sm) + \
+                            ol * (denominator / om)
 
-                return Ulamek(licznik, mianownik)
+                return Fraction(nominator, denominator)
 
             max_, min_ = (sm, om) if sm > om else (om, sm)
             mul = max_ // min_
             if om == min_:
 
-                return Ulamek(ol * mul + sl, sm)
+                return Fraction(ol * mul + sl, sm)
             else:
-                return Ulamek(sl * mul + ol, om)
+                return Fraction(sl * mul + ol, om)
 
-        return self + Ulamek(other, 1)
+        return self + Fraction(other, 1)
 
     def evaluate(self):
-        return self.licznik / self.mianownik
+        return self.nominator / self.denominator
 
 
-b = Ulamek(9, 5)
-c = Ulamek(1, 31)
+b = Fraction(9, 5)
+c = Fraction(1, 31)
 print(b + c)
