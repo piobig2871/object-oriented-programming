@@ -1,4 +1,4 @@
-from fraction import Fraction
+from src.objects.fraction import Fraction
 
 
 def test(fr1, fr2):

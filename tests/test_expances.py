@@ -1,4 +1,4 @@
-from expanse import MyExpance, summarize_expances
+from src.objects.expanse import MyExpance, summarize_expances
 
 
 def test():

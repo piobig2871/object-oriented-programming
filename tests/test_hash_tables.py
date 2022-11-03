@@ -1,4 +1,4 @@
-from hash_tables import HashTable
+from src.objects.hash_tables import HashTable
 
 
 def test():
