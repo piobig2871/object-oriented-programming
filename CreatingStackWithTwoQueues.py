@@ -32,30 +32,30 @@ class CreatingStackWithTwoQueues:
 
     def __init__(self):
 
-        self.kolejka1 = Queue()
-        self.kolejka2 = Queue()
+        self.queue1 = Queue()
+        self.queue2 = Queue()
 
     def push(self, val):
         """this method allowes us to push elements in the right order on the stack"""
 
-        self.kolejka2.enqueue(val)
-        while not self.kolejka1.isEmpty():
-            self.kolejka2.enqueue(self.kolejka1.dequeue())
-        while not self.kolejka2.isEmpty():
-            self.kolejka1.enqueue(self.kolejka2.dequeue())
+        self.queue2.enqueue(val)
+        while not self.queue1.is_empty():
+            self.queue2.enqueue(self.queue1.dequeue())
+        while not self.queue2.is_empty():
+            self.queue1.enqueue(self.queue2.dequeue())
 
     def pop(self):
         """deleting element on the top"""
-        return self.kolejka1.dequeue()
+        return self.queue1.dequeue()
 
     def top(self):
         """top of the stack"""
-        return self.kolejka1.first()
+        return self.queue1.first()
 
-    def isEmpty(self):
+    def is_empty(self):
         """checking if stack is empyt"""
-        return self.kolejka1.is_empty()
+        return self.queue1.is_empty()
 
     def size(self):
         """checking size of the stack"""
-        return self.kolejka1.size()
+        return self.queue1.size()

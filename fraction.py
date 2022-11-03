@@ -15,12 +15,9 @@ class Fraction(object):
         return self.nominator, self.denominator
 
     def __repr__(self):
-        return '{cls_name}({nominator}, {denominator})'.format(cls_name=self.__class__.__name__,
-                                                               nominator=self.nominator,
-                                                               denominator=self.denominator)
+        return f'{self.__class__.__name__}({self.nominator}, {self.denominator})'
 
     def __add__(self, other):
-
         if isinstance(other, Fraction):
 
             nwd = self._nwd(self.denominator, other.denominator)
@@ -28,8 +25,7 @@ class Fraction(object):
             om, ol = other.denominator, other.nominator
             if nwd == 1:
                 denominator = sm * om
-                nominator = sl * (denominator / sm) + \
-                            ol * (denominator / om)
+                nominator = sl * (denominator / sm) + ol * (denominator / om)
 
                 return Fraction(nominator, denominator)
 

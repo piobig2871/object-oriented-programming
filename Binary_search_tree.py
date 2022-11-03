@@ -1,4 +1,5 @@
-# Piotr Bigos
+__author__ = "Piotr Bigos"
+
 
 class BinarySearchTree:
     def __init__(self, dane=None):
@@ -13,13 +14,13 @@ class BinarySearchTree:
             z = BinarySearchTree(klucz)
             y = None
             x = self
-            while (x is not None):
+            while x is not None:
                 y = x
-                if (z.key < x.key):
+                if z.key < x.key:
                     x = x.left_node
                 else:
                     x = x.right_node
-            if (z.key < y.key):
+            if z.key < y.key:
                 y.left_node = z
             else:
                 y.right_node = z
@@ -33,7 +34,7 @@ class BinarySearchTree:
                 self.right_node.inorder()
 
     def _height(self):
-        if self.left_node == None and self.right_node == None:
+        if self.left_node is None and self.right_node is None:
             return 0
         left = right = 0
         if self.left_node is not None:
@@ -43,15 +44,15 @@ class BinarySearchTree:
         return max(left, right) + 1
 
     def height(self):
-        if self.key == None:
+        if self.key is None:
             return -1
         return self._height()
 
     def _right_is_none(self):
-        return self.right_node == None
+        return self.right_node is None
 
     def _left_is_none(self):
-        return self.left_node == None
+        return self.left_node is None
 
     def isleaf(self):
         return self._right_is_none() and self._left_is_none()
@@ -71,7 +72,7 @@ class BinarySearchTree:
         return self.key
 
     def _search(self, root, key):
-        if root == None:
+        if root is None:
             return False
         elif root._ret_key() == key:
             return True
@@ -87,13 +88,13 @@ class BinarySearchTree:
         return self.val
 
     def _left_is_empty(self):
-        if self.left_node == None:
+        if self.left_node is None:
             return True
         else:
             return False
 
     def _right_is_empty(self):
-        if self.right_node == None:
+        if self.right_node is None:
             return True
         else:
             return False
@@ -146,10 +147,10 @@ class BinarySearchTree:
             if self.key == klucz:
                 return wl + wr
             elif klucz < self.key:
-                if self.left_node != None:
+                if self.left_node is not None:
                     wl = self.left_node.depth(klucz)
             else:
-                if self.right_node != None:
+                if self.right_node is not None:
                     wr = self.right_node.depth(klucz)
             return wl + wr + 1
         else:
