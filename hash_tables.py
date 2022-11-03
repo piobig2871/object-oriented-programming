@@ -99,25 +99,10 @@ class HashTable(object):
             raise KeyError("There is not such a key")
 
     def __str__(self):
-        """reprezentation"""
+        """Representation"""
         ret = "{"
         for val in self.T:
             print(val)
             if val is not None and val != 'Deleted':
                 ret += str(val[0]) + ': ' + str(val[1]) + ', '
         return ret[:-2] + '}'
-
-
-def test():
-    ht = HashTable(11)
-    ht.insert(123, 1)
-    ht.insert("test", "value")
-    print(ht)
-    ht.insert("test", "value2")
-    print(ht)
-    ht.delete("test")
-    print(ht)
-    print(ht.T)
-
-
-print(test())

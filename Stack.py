@@ -28,9 +28,3 @@ class Stack:
 
     def size(self):
         return len(self.tab)
-
-
-s = Stack()
-s.insert_many([0, 1, 2, 3, 4, 5])
-print(s.pop())
-print(s.pop())

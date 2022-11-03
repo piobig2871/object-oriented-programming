@@ -15,12 +15,3 @@ def summarize_expances(min_amount, alist):
 
     for (type_, amount) in sorted(expenses.items(), key=lambda e: e[1]):
         print(type_, amount)
-
-
-foo = []
-foo.append(MyExpance('food', 4))
-foo.append(MyExpance('food', 3))
-foo.append(MyExpance('car', 3))
-foo.append(MyExpance('dog', 1))
-summarize_expances(2, foo)
-print(foo)

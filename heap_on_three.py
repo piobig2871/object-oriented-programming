@@ -87,8 +87,3 @@ class TriHeapMAX:
         while self.hSize > 0:
             ret.insert(0, self.extract_max())
         return ret
-
-
-L = [71, 66, 24, 32, 27, 23, 8, 5, 22, 25, 18]
-test = TriHeapMAX(L)
-print(test.sort())

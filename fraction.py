@@ -41,8 +41,3 @@ class Fraction(object):
 
     def evaluate(self):
         return self.nominator / self.denominator
-
-
-b = Fraction(9, 5)
-c = Fraction(1, 31)
-print(b + c)
