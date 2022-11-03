@@ -1,6 +1,11 @@
 from src.objects.fraction import Fraction
 
 
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
+
+
 def test(fr1, fr2):
     return fr1 + fr2
 

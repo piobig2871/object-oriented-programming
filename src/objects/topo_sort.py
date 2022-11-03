@@ -1,3 +1,8 @@
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
+
+
 def topological_sort(jobs, deps):
     job_graph = create_graph(jobs, deps)
     return get_ordered_jobs(job_graph)

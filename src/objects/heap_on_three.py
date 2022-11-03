@@ -1,3 +1,8 @@
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
+
+
 class TriHeapMAX:
     def __init__(self, T):
         self.hSize = len(T) - 1

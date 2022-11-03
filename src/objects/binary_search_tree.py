@@ -1,6 +1,11 @@
 __author__ = "Piotr Bigos"
 
 
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
+
+
 class BinarySearchTree:
     def __init__(self, dane=None):
         self.key = dane

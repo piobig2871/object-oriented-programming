@@ -1,4 +1,7 @@
-# coding: utf-8
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
+
 
 class Fraction(object):
     def __init__(self, nominator, denominator):

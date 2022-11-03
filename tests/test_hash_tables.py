@@ -1,6 +1,11 @@
 from src.objects.hash_tables import HashTable
 
 
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
+
+
 def test():
     ht = HashTable(11)
     ht.insert(123, 1)

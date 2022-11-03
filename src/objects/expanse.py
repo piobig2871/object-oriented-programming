@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
+
+
 from collections import namedtuple
 
 MyExpance = namedtuple('F', ['type_', 'amount'])

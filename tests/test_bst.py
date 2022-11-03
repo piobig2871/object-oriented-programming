@@ -1,6 +1,11 @@
 from src.objects.binary_search_tree import BinarySearchTree
 
 
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
+
+
 def test_binary_search_tree():
     r = BinarySearchTree()
     r.bst_insert_nr(65)

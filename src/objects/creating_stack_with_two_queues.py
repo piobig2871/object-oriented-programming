@@ -1,3 +1,8 @@
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
+
+
 class Queue:
     """Class Queue we will be using instances of this class to create stack.
         Queue is data stucture FIFO type."""
